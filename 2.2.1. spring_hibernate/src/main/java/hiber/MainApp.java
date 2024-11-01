@@ -45,12 +45,9 @@ public class MainApp {
 
       context.close();*/
 
-      //UserDao ud = new UserDaoImp();
-      List<User> ul = userService.getUserByCarModelAndSeries("Toyota", 2021);
+      User ul = userService.getUserByCarModelAndSeries("Toyota", 2021);
+      System.out.println(ul.getFirstName());
 
-      for (User u: ul) {
-         System.out.println(u.getFirstName());
-      }
 
    }
 
