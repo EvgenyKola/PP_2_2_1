@@ -14,12 +14,6 @@ import java.sql.SQLException;
 import java.util.List;
 
 
-
-
-
-
-
-
 public class MainApp {
    public static void main(String[] args) throws SQLException {
 
@@ -27,6 +21,7 @@ public class MainApp {
             new AnnotationConfigApplicationContext(AppConfig.class);
 
       UserService userService = context.getBean(UserService.class);
+
 
       /*userService.add(new User("User1", "Lastname1", "user1@mail.ru", new Car("Toyota", 2021)));
       userService.add(new User("User2", "Lastname2", "user2@mail.ru", new Car("Honda", 2020)));
@@ -41,12 +36,19 @@ public class MainApp {
          System.out.println("Last Name = "+user.getLastName());
          System.out.println("Email = "+user.getEmail());
          System.out.println();
-      }
+      }*/
 
-      context.close();*/
+
+      
 
       User ul = userService.getUserByCarModelAndSeries("Toyota", 2021);
-      System.out.println(ul.getFirstName());
+      if (ul != null) {
+         System.out.println(ul.getFirstName());
+      } else {
+         System.out.println("Пользователь с заданными параметрами не найден.");
+      }
+
+      context.close();
 
 
    }
